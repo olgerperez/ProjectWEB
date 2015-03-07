@@ -4,6 +4,7 @@ ehthumbs.db
 
 # Folder config file
 Desktop.ini
+ProjectWEB.sln.ide/
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
@@ -41,3 +42,6 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+*.log
+ProjectWEB.sln.ide/edb.log
+ProjectWEB.sln.ide/edb.chk
