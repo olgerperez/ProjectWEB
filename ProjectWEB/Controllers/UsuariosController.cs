@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ProjectWEB.Models;
+using System.Web.Helpers;
 
 namespace ProjectWEB.Controllers
 {
@@ -50,6 +51,7 @@ namespace ProjectWEB.Controllers
         {
             if (ModelState.IsValid)
             {
+                usuarios.contrasena = Crypto.Hash(usuarios.contrasena);
                 db.Usuarios.Add(usuarios);
                 db.SaveChanges();
                 return RedirectToAction("Index");
