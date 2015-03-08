@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -9,6 +10,7 @@ namespace ProjectWEB.Models
     public class Usuarios
     {
         [Key]
+        [Column(Order = 1)]
         public int id { set; get; }
         [Display(Name = "Nombre Completo")]
         [MaxLength(100)]
@@ -27,6 +29,8 @@ namespace ProjectWEB.Models
         [MaxLength(12)]
         public string telefono { set; get; }
 
-        
+
+
+
     }
 }

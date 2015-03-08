@@ -1,3 +1,5 @@
+O:\Beto\Documents\Visual Studio 2015\Projects\ProjectWEB\ProjectWEB\obj\Debug\ProjectWEB.Migrations.Init.resources
+O:\Beto\Documents\Visual Studio 2015\Projects\ProjectWEB\ProjectWEB\obj\Debug\ProjectWEB.csproj.GenerateResource.Cache
 O:\Beto\Documents\Visual Studio 2015\Projects\ProjectWEB\ProjectWEB\bin\ProjectWEB.dll.config
 O:\Beto\Documents\Visual Studio 2015\Projects\ProjectWEB\ProjectWEB\bin\ProjectWEB.dll
 O:\Beto\Documents\Visual Studio 2015\Projects\ProjectWEB\ProjectWEB\bin\ProjectWEB.pdb
@@ -38,10 +40,7 @@ O:\Beto\Documents\Visual Studio 2015\Projects\ProjectWEB\ProjectWEB\bin\fi\Npgsq
 O:\Beto\Documents\Visual Studio 2015\Projects\ProjectWEB\ProjectWEB\bin\fr\Npgsql.resources.dll
 O:\Beto\Documents\Visual Studio 2015\Projects\ProjectWEB\ProjectWEB\bin\ja\Npgsql.resources.dll
 O:\Beto\Documents\Visual Studio 2015\Projects\ProjectWEB\ProjectWEB\bin\zh-CN\Npgsql.resources.dll
-O:\Beto\Documents\Visual Studio 2015\Projects\ProjectWEB\ProjectWEB\obj\Debug\ProjectWEB.Migrations.init.resources
-O:\Beto\Documents\Visual Studio 2015\Projects\ProjectWEB\ProjectWEB\obj\Debug\ProjectWEB.Migrations.pruebacambios.resources
-O:\Beto\Documents\Visual Studio 2015\Projects\ProjectWEB\ProjectWEB\obj\Debug\ProjectWEB.Migrations.nombreColumnas.resources
-O:\Beto\Documents\Visual Studio 2015\Projects\ProjectWEB\ProjectWEB\obj\Debug\ProjectWEB.csproj.GenerateResource.Cache
 O:\Beto\Documents\Visual Studio 2015\Projects\ProjectWEB\ProjectWEB\obj\Debug\ProjectWEB.dll
 O:\Beto\Documents\Visual Studio 2015\Projects\ProjectWEB\ProjectWEB\obj\Debug\ProjectWEB.pdb
+O:\Beto\Documents\Visual Studio 2015\Projects\ProjectWEB\ProjectWEB\obj\Debug\ProjectWEB.Migrations.ForaneaUsuariosToProductos.resources
 O:\Beto\Documents\Visual Studio 2015\Projects\ProjectWEB\ProjectWEB\obj\Debug\ProjectWEB.csprojResolveAssemblyReference.cache

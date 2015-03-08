@@ -26,6 +26,11 @@ namespace ProjectWEB
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new StyleBundle("~/bundles/fileinput").Include(
+                     "~/Scripts/fileinput.js",
+                     "~/Scripts/bootstrap-filestyle.min.js",
+                     "~/Scripts/fileinput.min.js"));
         }
     }
 }

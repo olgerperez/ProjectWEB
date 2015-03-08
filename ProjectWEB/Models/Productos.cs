@@ -23,8 +23,12 @@ namespace ProjectWEB.Models
         [Display(Name = "Fecha")]
         public DateTime fecha { set; get; }
 
-        //[ForeignKey("Usuario")]
-        public int  usuario_id { set; get; }
-        //public Usuarios Usuario { set; get; }
+        [Display(Name = "Nombre Usuario")]
+        [ForeignKey("Usuario")]
+        [Column(Order = 1)]
+        public int usuario_id { set; get; }
+        public Usuarios Usuario { set; get; }
+
+
     }
 }

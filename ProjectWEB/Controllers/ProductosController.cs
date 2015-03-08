@@ -17,7 +17,8 @@ namespace ProjectWEB.Controllers
         // GET: Productos
         public ActionResult Index()
         {
-            return View(db.Productos.ToList());
+            var productos = db.Productos.Include(p => p.Usuario);
+            return View(productos.ToList());
         }
 
         // GET: Productos/Details/5
@@ -38,6 +39,7 @@ namespace ProjectWEB.Controllers
         // GET: Productos/Create
         public ActionResult Create()
         {
+            ViewBag.usuario_id = new SelectList(db.Usuarios, "id", "nombre_completo");
             return View();
         }
 
@@ -50,11 +52,14 @@ namespace ProjectWEB.Controllers
         {
             if (ModelState.IsValid)
             {
+                productos.fecha = DateTime.Today;
+                 
                 db.Productos.Add(productos);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
+            ViewBag.usuario_id = new SelectList(db.Usuarios, "id", "nombre_completo", productos.usuario_id);
             return View(productos);
         }
 
@@ -70,6 +75,7 @@ namespace ProjectWEB.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.usuario_id = new SelectList(db.Usuarios, "id", "nombre_completo", productos.usuario_id);
             return View(productos);
         }
 
@@ -86,6 +92,7 @@ namespace ProjectWEB.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.usuario_id = new SelectList(db.Usuarios, "id", "nombre_completo", productos.usuario_id);
             return View(productos);
         }
 

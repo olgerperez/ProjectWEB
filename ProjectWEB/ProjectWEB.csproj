@@ -144,17 +144,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201503070752120_init.cs" />
-    <Compile Include="Migrations\201503070752120_init.Designer.cs">
-      <DependentUpon>201503070752120_init.cs</DependentUpon>
+    <Compile Include="Migrations\201503071751376_Init.cs" />
+    <Compile Include="Migrations\201503071751376_Init.Designer.cs">
+      <DependentUpon>201503071751376_Init.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201503070901593_pruebacambios.cs" />
-    <Compile Include="Migrations\201503070901593_pruebacambios.Designer.cs">
-      <DependentUpon>201503070901593_pruebacambios.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201503071313278_nombreColumnas.cs" />
-    <Compile Include="Migrations\201503071313278_nombreColumnas.Designer.cs">
-      <DependentUpon>201503071313278_nombreColumnas.cs</DependentUpon>
+    <Compile Include="Migrations\201503071756525_ForaneaUsuariosToProductos.cs" />
+    <Compile Include="Migrations\201503071756525_ForaneaUsuariosToProductos.Designer.cs">
+      <DependentUpon>201503071756525_ForaneaUsuariosToProductos.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationContext.cs" />
@@ -164,17 +160,25 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-filestyle.min.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\fileinput.css" />
+    <Content Include="Content\fileinput.js" />
+    <Content Include="Content\fileinput.min.css" />
+    <Content Include="Content\fileinput.min.js" />
     <Content Include="Content\layaout.css" />
     <Content Include="Content\login.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap-filestyle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\fileinput.js" />
+    <Content Include="Scripts\fileinput.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -203,11 +207,6 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Productos\Create.cshtml" />
-    <Content Include="Views\Productos\Delete.cshtml" />
-    <Content Include="Views\Productos\Details.cshtml" />
-    <Content Include="Views\Productos\Edit.cshtml" />
-    <Content Include="Views\Productos\Index.cshtml" />
     <Content Include="Views\Transacciones\Create.cshtml" />
     <Content Include="Views\Transacciones\Delete.cshtml" />
     <Content Include="Views\Transacciones\Details.cshtml" />
@@ -219,6 +218,11 @@
     <Content Include="Views\Usuarios\Edit.cshtml" />
     <Content Include="Views\Usuarios\Index.cshtml" />
     <Content Include="Views\Login\login.cshtml" />
+    <Content Include="Views\Productos\Create.cshtml" />
+    <Content Include="Views\Productos\Delete.cshtml" />
+    <Content Include="Views\Productos\Details.cshtml" />
+    <Content Include="Views\Productos\Edit.cshtml" />
+    <Content Include="Views\Productos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -234,14 +238,11 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201503070752120_init.resx">
-      <DependentUpon>201503070752120_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201503071751376_Init.resx">
+      <DependentUpon>201503071751376_Init.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201503070901593_pruebacambios.resx">
-      <DependentUpon>201503070901593_pruebacambios.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201503071313278_nombreColumnas.resx">
-      <DependentUpon>201503071313278_nombreColumnas.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201503071756525_ForaneaUsuariosToProductos.resx">
+      <DependentUpon>201503071756525_ForaneaUsuariosToProductos.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

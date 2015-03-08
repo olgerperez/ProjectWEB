@@ -3,7 +3,7 @@ namespace ProjectWEB.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class init : DbMigration
+    public partial class Init : DbMigration
     {
         public override void Up()
         {
@@ -16,7 +16,6 @@ namespace ProjectWEB.Migrations
                         imagen = c.String(maxLength: 100),
                         estado = c.String(maxLength: 40),
                         fecha = c.DateTime(nullable: false),
-                        usuario_id = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.id);
             
@@ -37,7 +36,7 @@ namespace ProjectWEB.Migrations
                 c => new
                     {
                         id = c.Int(nullable: false, identity: true),
-                        nombre_completo = c.String(maxLength: 100),
+                        nombre_completo = c.String(nullable: false, maxLength: 100),
                         usuario = c.String(maxLength: 25),
                         contrasena = c.String(maxLength: 255),
                         correo = c.String(maxLength: 100),

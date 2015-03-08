@@ -7,13 +7,13 @@ namespace ProjectWEB.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.2-31219")]
-    public sealed partial class nombreColumnas : IMigrationMetadata
+    public sealed partial class Init : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(nombreColumnas));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Init));
         
         string IMigrationMetadata.Id
         {
-            get { return "201503071313278_nombreColumnas"; }
+            get { return "201503071751376_Init"; }
         }
         
         string IMigrationMetadata.Source

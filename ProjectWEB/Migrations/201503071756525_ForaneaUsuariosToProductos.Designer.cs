@@ -7,13 +7,13 @@ namespace ProjectWEB.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.2-31219")]
-    public sealed partial class init : IMigrationMetadata
+    public sealed partial class ForaneaUsuariosToProductos : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(init));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ForaneaUsuariosToProductos));
         
         string IMigrationMetadata.Id
         {
-            get { return "201503070752120_init"; }
+            get { return "201503071756525_ForaneaUsuariosToProductos"; }
         }
         
         string IMigrationMetadata.Source
