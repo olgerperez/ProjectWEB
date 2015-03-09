@@ -167,6 +167,8 @@
     <Content Include="Content\fileinput.js" />
     <Content Include="Content\fileinput.min.css" />
     <Content Include="Content\fileinput.min.js" />
+    <Content Include="Content\Imagenes\fondo.jpg" />
+    <Content Include="Content\Imagenes\productos.jpg" />
     <Content Include="Content\layaout.css" />
     <Content Include="Content\login.css" />
     <Content Include="favicon.ico" />

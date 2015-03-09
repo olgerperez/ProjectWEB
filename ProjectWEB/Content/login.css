@@ -1,6 +1,20 @@
-﻿#divlogin {
+﻿#divlogin{
+    margin-right: 10%;
+    margin-left: 10%;
     background-color: white;
     box-shadow: 5px 9px 21px #000205;
-    height: 70%;
-    width: 40%;
+    height: 800px;
+    margin-top: -3%;
+
+
+}
+
+#barra{
+    margin-right: 1%;
+    margin-left: 1%;
+   
+}
+
+body {
+    background-image: url('Imagenes/fondo.jpg')!important;
 }

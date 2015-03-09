@@ -31,6 +31,8 @@ namespace ProjectWEB
                      "~/Scripts/fileinput.js",
                      "~/Scripts/bootstrap-filestyle.min.js",
                      "~/Scripts/fileinput.min.js"));
+            bundles.Add(new StyleBundle("~/bundles/login").Include(
+                     "~/Content/login.css"));
         }
     }
 }
