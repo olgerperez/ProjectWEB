@@ -26,17 +26,6 @@ namespace ProjectWEB.Controllers
 
 
         // GET: Login
-        public ActionResult Index()
-        {
-            if (session())
-            {
-                return RedirectToAction("Index", "Home");
-            }
-            else
-            {
-                return View();
-            }
-        }
 
         [HttpGet]
         public ActionResult login()
@@ -50,6 +39,30 @@ namespace ProjectWEB.Controllers
                 return View();
             }
 
+        }
+
+        // GET: Usuarios/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Usuarios/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "id,nombre_completo,usuario,contrasena,correo,telefono")] Usuarios usuarios)
+        {
+            if (ModelState.IsValid)
+            {
+                usuarios.contrasena = Crypto.Hash(usuarios.contrasena);
+                dbContext.Usuarios.Add(usuarios);
+                dbContext.SaveChanges();
+                return RedirectToAction("Login");
+            }
+
+            return View(usuarios);
         }
 
         [HttpPost]

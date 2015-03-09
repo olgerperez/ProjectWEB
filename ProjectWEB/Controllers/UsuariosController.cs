@@ -15,31 +15,64 @@ namespace ProjectWEB.Controllers
     {
         private ApplicationContext db = new ApplicationContext();
 
+        public Boolean session()
+        {
+            if (Request.Cookies["authentication"] != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         // GET: Usuarios
         public ActionResult Index()
         {
-            return View(db.Usuarios.ToList());
+            if (session())
+            {
+                return View(db.Usuarios.ToList());
+            }
+            else
+            {
+                return RedirectToAction("login", "Login");
+            }
         }
 
         // GET: Usuarios/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (session())
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Usuarios usuarios = db.Usuarios.Find(id);
+                if (usuarios == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(usuarios);
             }
-            Usuarios usuarios = db.Usuarios.Find(id);
-            if (usuarios == null)
+            else
             {
-                return HttpNotFound();
-            }
-            return View(usuarios);
+                return RedirectToAction("login", "Login");
+            }       
         }
 
         // GET: Usuarios/Create
         public ActionResult Create()
         {
-            return View();
+            if (session())
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("login", "Login");
+            }
+            
         }
 
         // POST: Usuarios/Create
@@ -63,16 +96,24 @@ namespace ProjectWEB.Controllers
         // GET: Usuarios/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (session())
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Usuarios usuarios = db.Usuarios.Find(id);
+                if (usuarios == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(usuarios);
             }
-            Usuarios usuarios = db.Usuarios.Find(id);
-            if (usuarios == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("login", "Login");
             }
-            return View(usuarios);
+            
         }
 
         // POST: Usuarios/Edit/5
@@ -82,28 +123,44 @@ namespace ProjectWEB.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "id,nombre_completo,usuario,contrasena,correo,telefono")] Usuarios usuarios)
         {
-            if (ModelState.IsValid)
+            if (session())
             {
-                db.Entry(usuarios).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Entry(usuarios).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                return View(usuarios);
             }
-            return View(usuarios);
+            else
+            {
+                return RedirectToAction("login", "Login");
+            }
+           
         }
 
         // GET: Usuarios/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (session())
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Usuarios usuarios = db.Usuarios.Find(id);
+                if (usuarios == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(usuarios);
             }
-            Usuarios usuarios = db.Usuarios.Find(id);
-            if (usuarios == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("login", "Login");
             }
-            return View(usuarios);
+           
         }
 
         // POST: Usuarios/Delete/5

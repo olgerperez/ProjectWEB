@@ -14,33 +14,71 @@ namespace ProjectWEB.Controllers
     {
         private ApplicationContext db = new ApplicationContext();
 
+        public Boolean session()
+        {
+            if (Request.Cookies["authentication"] != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         // GET: Productos
         public ActionResult Index()
         {
-            var productos = db.Productos.Include(p => p.Usuario);
-            return View(productos.ToList());
+            if (session())
+            {
+                var productos = db.Productos.Include(p => p.Usuario);
+                return View(productos.ToList());
+            }
+            else
+            {
+                return RedirectToAction("login", "Login");
+            }
+                
         }
 
         // GET: Productos/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+
+            if (session())
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Productos productos = db.Productos.Find(id);
+                if (productos == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(productos); 
             }
-            Productos productos = db.Productos.Find(id);
-            if (productos == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("login", "Login");
             }
-            return View(productos);
+
+            
         }
 
         // GET: Productos/Create
         public ActionResult Create()
         {
-            ViewBag.usuario_id = new SelectList(db.Usuarios, "id", "nombre_completo");
-            return View();
+            if (session())
+            {
+                ViewBag.usuario_id = new SelectList(db.Usuarios, "id", "nombre_completo");
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("login", "Login");
+            }
+           
         }
 
         // POST: Productos/Create
@@ -49,7 +87,7 @@ namespace ProjectWEB.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id,descripcion,imagen,estado,fecha,usuario_id")] Productos productos)
-        {
+        {   
             if (ModelState.IsValid)
             {
                 productos.fecha = DateTime.Today;
@@ -66,17 +104,25 @@ namespace ProjectWEB.Controllers
         // GET: Productos/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (session())
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Productos productos = db.Productos.Find(id);
+                if (productos == null)
+                {
+                    return HttpNotFound();
+                }
+                ViewBag.usuario_id = new SelectList(db.Usuarios, "id", "nombre_completo", productos.usuario_id);
+                return View(productos);
             }
-            Productos productos = db.Productos.Find(id);
-            if (productos == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("login", "Login");
             }
-            ViewBag.usuario_id = new SelectList(db.Usuarios, "id", "nombre_completo", productos.usuario_id);
-            return View(productos);
+            
         }
 
         // POST: Productos/Edit/5
@@ -86,29 +132,44 @@ namespace ProjectWEB.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "id,descripcion,imagen,estado,fecha,usuario_id")] Productos productos)
         {
-            if (ModelState.IsValid)
+            if (session())
             {
-                db.Entry(productos).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Entry(productos).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                ViewBag.usuario_id = new SelectList(db.Usuarios, "id", "nombre_completo", productos.usuario_id);
+                return View(productos);
             }
-            ViewBag.usuario_id = new SelectList(db.Usuarios, "id", "nombre_completo", productos.usuario_id);
-            return View(productos);
+            else
+            {
+                return RedirectToAction("login", "Login");
+            }
         }
 
         // GET: Productos/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (session())
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Productos productos = db.Productos.Find(id);
+                if (productos == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(productos);
             }
-            Productos productos = db.Productos.Find(id);
-            if (productos == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("login", "Login");
             }
-            return View(productos);
+
         }
 
         // POST: Productos/Delete/5
@@ -116,10 +177,17 @@ namespace ProjectWEB.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Productos productos = db.Productos.Find(id);
-            db.Productos.Remove(productos);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (session())
+            {
+                Productos productos = db.Productos.Find(id);
+                db.Productos.Remove(productos);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return RedirectToAction("login", "Login");
+            }
         }
 
         protected override void Dispose(bool disposing)
