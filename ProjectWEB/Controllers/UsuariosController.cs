@@ -87,12 +87,11 @@ namespace ProjectWEB.Controllers
                 usuarios.contrasena = Crypto.Hash(usuarios.contrasena);
                 db.Usuarios.Add(usuarios);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Login");
             }
 
             return View(usuarios);
         }
-
         // GET: Usuarios/Edit/5
         public ActionResult Edit(int? id)
         {

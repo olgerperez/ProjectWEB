@@ -35,12 +35,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.estado, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <select id="selectRole" class="form-control">
-                    <option>Activo</option>
-                    <option>Inactivo</option>
-                    <option>En Transaccion</option>
-                    <option>Cancelado</option>
-                </select>
+                @Html.DropDownListFor(model => model.estado, new SelectList(new string[] { "Activo", "Inactivo" }))
+
             </div>
         </div>
        

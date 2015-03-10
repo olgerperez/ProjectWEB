@@ -136,6 +136,7 @@ namespace ProjectWEB.Controllers
             {
                 if (ModelState.IsValid)
                 {
+                    productos.fecha = DateTime.Today;
                     db.Entry(productos).State = EntityState.Modified;
                     db.SaveChanges();
                     return RedirectToAction("Index");

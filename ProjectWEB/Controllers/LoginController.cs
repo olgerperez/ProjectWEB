@@ -92,6 +92,18 @@ namespace ProjectWEB.Controllers
             return View(usuario);
         }
 
+        public ActionResult Logout()
+        {
+            //Cerramos Session
+            if (Request.Cookies["authentication"] != null)
+            {
+                var c = new HttpCookie("authentication");
+                c.Expires = DateTime.Now.AddDays(-1);
+                Response.Cookies.Add(c);
+            }
+            return RedirectToAction("Login");
+        }
+
         private bool IsValid(string user, string password)
         {
             bool isValid = false;

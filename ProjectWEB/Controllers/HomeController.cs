@@ -8,23 +8,31 @@ namespace ProjectWEB.Controllers
 {
     public class HomeController : Controller
     {
+
+        public Boolean session()
+        {
+            if (Request.Cookies["authentication"] != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public ActionResult Index()
         {
-            return View();
-        }
+            if (session())
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("login", "Login");
+            }
+       }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+      
     }
 }

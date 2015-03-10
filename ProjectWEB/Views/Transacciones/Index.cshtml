@@ -7,7 +7,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.RouteLink(" Agregar Transacciones", new { controller = "Transacciones", action = "Create" }, new { @class = "glyphicon glyphicon-plus col-lg-2 btn btn-success submit-button pull-right" })
 </p>
 <table class="table">
     <tr>
@@ -41,9 +41,11 @@
             @Html.DisplayFor(modelItem => item.estado)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.id }, new { @class = "btn btn-primary glyphicon glyphicon-pencil" })
+            @Html.ActionLink("Details", "Details", new { id = item.id }, new { @class = "btn btn-warning glyphicon glyphicon-eye-open" })
+            @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "btn btn-danger glyphicon glyphicon-remove" })
+
+
         </td>
     </tr>
 }
